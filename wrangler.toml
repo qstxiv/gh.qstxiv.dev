@@ -1,0 +1,10 @@
+name = "gh.qstxiv.dev"
+main = "src/index.js"
+workers_dev = false
+compatibility_date = "2023-09-04"
+routes = [
+  { pattern = "gh.qstxiv.dev", custom_domain = true }
+]
+
+[[analytics_engine_datasets]]
+binding = "METRICS"
