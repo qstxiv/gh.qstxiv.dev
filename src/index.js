@@ -1,7 +1,13 @@
+// Allowed users/organisations
 const ALLOWED_PREFIXES = ["/alydevs/", "/qstxiv/", "/punishxiv/"];
+// Allowed path extensions
 const ALLOWED_EXTS = [".json", ".png", ".md", ".zip"];
+// Common manifest json path
 const MANIFEST_PATH = "/punishxiv/questionable/releases/download/paths-latest/manifest-latest.json";
+// User agent for requests to github
 const USER_AGENT = "questionable-mirror";
+// Redirect url for invalid requests
+const REDIR_URL = "https://github.com/PunishXIV/Questionable";
 
 export default {
   async fetch(req) {
@@ -11,7 +17,7 @@ export default {
     const ok =
       ALLOWED_PREFIXES.some((p) => path.startsWith(p)) &&
       ALLOWED_EXTS.some((e) => path.endsWith(e));
-    if (!ok) return Response.redirect("https://github.com/PunishXIV/Questionable", 302);
+    if (!ok) return Response.redirect(REDIR_URL, 302);
 
     const isManifest = path === MANIFEST_PATH;
 
