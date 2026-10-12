@@ -1,7 +1,7 @@
 // Allowed users/organisations
 const ALLOWED_PREFIXES = ["/alydevs/", "/qstxiv/", "/punishxiv/"];
 // Allowed path extensions
-const ALLOWED_EXTS = [".json", ".png", ".md", ".zip"];
+const ALLOWED_EXTS = [".json", ".png", ".md", ".zip", ".js"];
 // Common manifest json path
 const MANIFEST_PATH = "/punishxiv/questionable/releases/download/paths-latest/manifest-latest.json";
 // User agent for requests to github
