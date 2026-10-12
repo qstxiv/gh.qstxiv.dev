@@ -1,4 +1,4 @@
-name = "gh.qstxiv.dev"
+name = "gh"
 main = "src/index.js"
 workers_dev = false
 compatibility_date = "2023-09-04"
