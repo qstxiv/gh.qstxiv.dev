@@ -14,6 +14,28 @@ export default {
     const url = new URL(req.url);
     const path = url.pathname.toLowerCase();
 
+    try {
+        METRICS.writeDataPoint({
+            indexes: [
+                metadata.status
+            ],
+            blobs: [
+                request.method,
+                request.cf.country,
+                request.cf.asn,
+                request.cf.timezone,
+                new Date().toISOString(),
+                request.headers.get("cf-connecting-ip"),
+                request.headers.get("referer")
+            ]
+        })
+    } catch (e) {
+        // Metrics disabled
+        if (!(e instanceof ReferenceError)) {
+            throw e
+        }
+    }
+
     const ok =
       ALLOWED_PREFIXES.some((p) => path.startsWith(p)) &&
       ALLOWED_EXTS.some((e) => path.endsWith(e));
